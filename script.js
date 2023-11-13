@@ -24,7 +24,8 @@ const signUp = (e) => {
       localStorage.setItem("formData", JSON.stringify(formData));
       document.querySelector("form").reset();
       document.getElementById("fname").focus();
-      alert("Account Created.\n\nPlease Sign In using the link below.");
+      alert("Account Created Successfully");
+      window.location.href = "signin.html";
     } else {
       alert("User Already Registered. Please Log In.");
     }
@@ -41,7 +42,7 @@ function signIn(e) {
   // console.log(email);
   let formData = JSON.parse(localStorage.getItem("formData")) || [];
   let matchedUser = formData.find(
-    (data) => data.email.toLowerCase() == email && data.pwd.toLowerCase() == pwd
+    (data) => data.email.toLowerCase() == email && data.pwd== pwd
   );
 
   if (!matchedUser) {
@@ -106,3 +107,11 @@ function displayImages(images)
   });
 }
 
+let sign_out1 = document.getElementById("nav-btn-1");
+sign_out1.addEventListener("click", () => {
+  location.href = "/index.html";
+})
+let sign_out2 = document.getElementById("profile-btn-1");
+sign_out2.addEventListener("click", () => {
+  location.href = "/index.html";
+});
